@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine</title>
+  <link rel="stylesheet" href="text.css">
+  <style>
+    .glowing-text {
+      color: #1E90FF;
+      font-weight: bold;
+      text-shadow: 0 0 5px #1E90FF, 0 0 10px #1E90FF, 0 0 15px #1E90FF;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #1E90FF, 0 0 10px #1E90FF, 0 0 15px #1E90FF;
+      }
+      100% {
+        text-shadow: 0 0 10px #1E90FF, 0 0 20px #1E90FF, 0 0 30px #1E90FF;
+      }
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .custom-button {
+      background-color: #E21393;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(226, 19, 147, 0.4);
+    }
+
+    .custom-button:hover {
+      background-color: #C0107F;
+      box-shadow: 0 5px 20px rgba(192, 16, 127, 0.6);
+    }
+
+    /* تأثير التوهج والتحريك للخط الوردي */
+    .linear-2 {
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      animation: draw 2s linear forwards, glowPink 1.5s infinite alternate;
+      filter: drop-shadow(0 0 8px #FF1493) drop-shadow(0 0 16px #FF69B4);
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes glowPink {
+      0% {
+        stroke: #FF1493;
+        filter: drop-shadow(0 0 5px #FF1493);
+      }
+      100% {
+        stroke: #FF69B4;
+        filter: drop-shadow(0 0 15px #FF69B4);
+      }
+    }
+
+    /* زر تشغيل الموسيقى */
+    .audio-button {
+      background-color: #FF69B4;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 50px;
+      border: 3px solid #FF1493;
+      box-shadow: 0 5px 15px rgba(255, 69, 58, 0.4);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .audio-button:hover {
+      background-color: #FF1493;
+      border-color: #FF69B4;
+      box-shadow: 0 0 20px rgba(255, 69, 58, 0.7);
+    }
+
+    /* الزهور الصغيرة حول الزر */
+    .audio-button::before {
+      content: '🌹';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      font-size: 18px;
+      animation: flowerMove 1.5s infinite alternate;
+    }
+
+    .audio-button::after {
+      content: '🌹';
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      font-size: 18px;
+      animation: flowerMove 1.5s infinite alternate;
+    }
+
+    @keyframes flowerMove {
+      0% {
+        transform: scale(1) translateY(0);
+      }
+      100% {
+        transform: scale(1.2) translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- إضافة الصوت التلقائي -->
+  <audio id="background-music" autoplay loop>
+      <source src="PO9.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+
+  <div class="loading">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      x="0px" y="0px" width="500" height="200" viewBox="0 0 334 120" enable-background="new 0 0 334 120" xml:space="preserve">
+      <filter id="blur-filter" x="-1" y="0" width="200" height="200">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+      </filter>
+
+      <!-- الخط الوردي المتوهج والمتحرك -->
+      <path class="linear-2" fill="none" stroke="#FF1493" stroke-width="2" stroke-miterlimit="10" 
+        d="M32.333,90c0,0,38-29.333,69.333-15.333S168.333,97.333,185,85.333s31.638-47.49,14-69
+        c-8.615-10.506-19.829-1.669-26,7.667c-3.619,5.474-4.667,12.667-4.667,12.667S152.637,12.315,142,29.333
+        c-5,8-5.667,45.333,19.333,57C205.574,106.979,287.928,102.42,311,88"/>
+    </svg>
+    
+    <h1>Happy Valentine</h1>
+    <p>من يقول الزين ما يكمل حلاه كل شيء في حبيبي اكتمل</p>
+    <p>الله اللي كمله والله عطاه ما بقى للزين في خلّي محل</p>
+    <p>لليل أحبك.. ما بقى في السما نور والي ضواني الليل.. للصبح أحبك</p>
+    <p>واللحظة اللي كلها صد وغرور أشوف قبري بين عينك وقلبك</p>
+    <p>كلما حدثتها ازدادت جمالاً إلى أن نطق الجمال تفنناً محتالة أنت لا أمان لك منْ قال إنك من جنسنا</p>
+    <p>منْ قال إنك مثلنا ملك سقطتي ها هنا مرسولة أنت لتفتني يا للكمال فتنتنا</p>
+    <h3 class="glowing-text">من باسم❤️</h3>
+
+    <!-- زر تشغيل الموسيقى -->
+    <div class="button-container">
+      <button class="audio-button" onclick="document.getElementById('background-music').play()">تشغيل الموسيقى</button>
+    </div>
+
+    <!-- زر "مصمم المشروع" -->
+    <div class="button-container">
+      <a href="https://t.me/Y2036" target="_blank" class="custom-button">مصمم المشروع</a>
+    </div>
+  </div>
+</body>
+</html>
